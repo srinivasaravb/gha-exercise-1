@@ -6,13 +6,19 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+
+      - name: setup Node.job
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          cache: npm
       - name: Lint Code
         run: |
           echo "Linting Code....."
           npm run lint
       - name: Run tests
         run: |
-          echo "RUnning tests....."
+          echo "Running tests....."
           npmr test
       - name: Build Project
         run: |
