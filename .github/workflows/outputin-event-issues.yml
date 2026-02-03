@@ -1,5 +1,5 @@
 name: outputin-event-issues
-on: [push, workflow_dispatch]
+on: [push, workflow_dispatch, pull_request]
 jobs:
   issues:
     runs-on: ubuntu-latest
