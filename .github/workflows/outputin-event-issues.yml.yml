@@ -7,4 +7,4 @@ jobs:
       - name: GitHub Context Information
         run: echo "${{ toJson(github) }}"
       - name: GitHub Issues Context Information
-        run: echo "${{ toJson(github.issues) }}"
+        run: echo "${{ toJson(github.workflow.output-event-issues) }}"
