@@ -1,1 +1,23 @@
-
+name: build-workflow
+on: [ push, workflow_dispatch ]
+jobs:
+  build:
+    runs=on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Lint Code
+        runs: |
+          echo "Linting Code....."
+          npm run lint
+      - name: Run tests
+        run: |
+          echo "RUnning tests....."
+          npmr test
+      - name: Build Project
+        run: |
+          echo "Building project"
+          npm run build
+      - name: Deploy project
+        run: |
+          echo "Deploy project....."
