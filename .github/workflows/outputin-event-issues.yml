@@ -1,0 +1,352 @@
+name: output-event-issues
+on: [push, workflow_dispatch]
+jobs:
+  issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Context Information
+        run: echo "${{ toJson(github) }}"
+      - name: GitHub Issues Context Information
+        run: echo "${{ toJson(github.workflow) }}"
+      - name: Output Event Information
+        run: echo "${{ toJson(github.event) }}"
+      - name: Output Event Issues Information
+        run: echo "${{ toJson(github.event.issues) }}"
+      - name: Output Event Issue Information
+        run: echo "${{ toJson(github.event.issue) }}"
+      - name: Output Event Issue Title
+        run: echo "${{ github.event.issue.title }}"
+      - name: Output Event Issue Body
+        run: echo "${{ github.event.issue.body }}"
+      - name: Output Event Issue Number
+        run: echo "${{ github.event.issue.number }}"
+      - name: Output Event Issue User Login
+        run: echo "${{ github.event.issue.user.login }}"
+      - name: Output Event Issue Labels
+        run: echo "${{ toJson(github.event.issue.labels) }}"
+      - name: Output Event Issue State
+        run: echo "${{ github.event.issue.state }}"
+      - name: Output Event Issue Created At
+        run: echo "${{ github.event.issue.created_at }}"
+      - name: Output Event Issue Updated At
+        run: echo "${{ github.event.issue.updated_at }}"
+      - name: Output Event Issue Closed At
+        run: echo "${{ github.event.issue.closed_at }}"
+      - name: Output Event Issue Comments
+        run: echo "${{ github.event.issue.comments }}"
+      - name: Output Event Issue HTML URL
+        run: echo "${{ github.event.issue.html_url }}"
+      - name: Output Event Issue URL
+        run: echo "${{ github.event.issue.url }}"
+      - name: Output Event Issue Node ID
+        run: echo "${{ github.event.issue.node_id }}"
+      - name: Output Event Issue Pull Request
+        run: echo "${{ toJson(github.event.issue.pull_request) }}"
+      - name: Output Event Issue Assignees
+        run: echo "${{ toJson(github.event.issue.assignees) }}"
+      - name: Output Event Issue Milestone
+        run: echo "${{ toJson(github.event.issue.milestone) }}"
+      - name: Output Event Issue Author Association
+        run: echo "${{ github.event.issue.author_association }}"
+      - name: Output Event Issue Reactions
+        run: echo "${{ toJson(github.event.issue.reactions) }}"
+      - name: Output Event Issue Draft
+        run: echo "${{ github.event.issue.draft }}"
+      - name: Output Event Issue Locked
+        run: echo "${{ github.event.issue.locked }}"
+      - name: Output Event Issue Active Lock Reason
+        run: echo "${{ github.event.issue.active_lock_reason }}"
+      - name: Output Event Issue Body HTML URL
+        run: echo "${{ github.event.issue.body_html }}"
+      - name: Output Event Issue Body Text URL
+        run: echo "${{ github.event.issue.body_text }}"
+      - name: Output Event Issue Timeline URL
+        run: echo "${{ github.event.issue.timeline_url }}"
+      - name: Output Event Issue Performed Via GitHub App
+        run: echo "${{ toJson(github.event.issue.performed_via_github_app) }}" 
+      - name: Output Event Issue State Reason
+        run: echo "${{ github.event.issue.state_reason }}"
+      - name: Output Event Issue Closed By
+        run: echo "${{ toJson(github.event.issue.closed_by) }}"
+      - name: Output Event Issue Reactions Total Count
+        run: echo "${{ github.event.issue.reactions.total_count }}"
+      - name: Output Event Issue Reactions Plus One
+        run: echo "${{ github.event.issue.reactions['+1'] }}"
+      - name: Output Event Issue Reactions Minus One
+        run: echo "${{ github.event.issue.reactions['-1'] }}"
+      - name: Output Event Issue Reactions Laugh
+        run: echo "${{ github.event.issue.reactions.laugh }}"
+      - name: Output Event Issue Reactions Confused
+        run: echo "${{ github.event.issue.reactions.confused }}"
+      - name: Output Event Issue Reactions Heart
+        run: echo "${{ github.event.issue.reactions.heart }}"
+      - name: Output Event Issue Reactions Hooray
+        run: echo "${{ github.event.issue.reactions.hooray }}"
+      - name: Output Event Issue Reactions Rocket
+        run: echo "${{ github.event.issue.reactions.rocket }}"
+      - name: Output Event Issue Reactions Eyes
+        run: echo "${{ github.event.issue.reactions.eyes }}"
+      - name: Output Event Issue Labels Names
+        run: |
+          for label in "${{ toJson(github.event.issue.labels) }}"; do
+            echo "$label.name"
+          done
+      - name: Output Event Issue Labels Colors
+        run: |
+          for label in "${{ toJson(github.event.issue.labels) }}"; do
+            echo "$label.color"
+          done
+      - name: Output Event Issue Assignees Logins
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.login"
+          done
+      - name: Output Event Issue Assignees IDs
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.id"
+          done
+      - name: Output Event Issue Assignees Node IDs
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.node_id"
+          done
+      - name: Output Event Issue Assignees Avatar URLs
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.avatar_url"
+          done
+      - name: Output Event Issue Assignees HTML URLs
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.html_url"
+          done
+      - name: Output Event Issue Assignees Type
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.type"
+          done
+      - name: Output Event Issue Assignees Site Admin
+        run: |
+          for assignee in "${{ toJson(github.event.issue.assignees) }}"; do
+            echo "$assignee.site_admin"
+          done  
+      - name: Output Event Issue Milestone Title
+        run: echo "${{ github.event.issue.milestone.title }}"
+      - name: Output Event Issue Milestone Description
+        run: echo "${{ github.event.issue.milestone.description }}"
+      - name: Output Event Issue Milestone State
+        run: echo "${{ github.event.issue.milestone.state }}"
+      - name: Output Event Issue Milestone Creator Login
+        run: echo "${{ github.event.issue.milestone.creator.login }}"
+      - name: Output Event Issue Milestone Open Issues
+        run: echo "${{ github.event.issue.milestone.open_issues }}"
+      - name: Output Event Issue Milestone Closed Issues
+        run: echo "${{ github.event.issue.milestone.closed_issues }}"
+      - name: Output Event Issue Milestone Created At
+        run: echo "${{ github.event.issue.milestone.created_at }}"
+      - name: Output Event Issue Milestone Updated At
+        run: echo "${{ github.event.issue.milestone.updated_at }}"
+      - name: Output Event Issue Milestone Due On
+        run: echo "${{ github.event.issue.milestone.due_on }}"
+      - name: Output Event Issue Milestone Closed At
+        run: echo "${{ github.event.issue.milestone.closed_at }}"
+      - name: Output Event Issue Milestone URL
+        run: echo "${{ github.event.issue.milestone.url }}"
+      - name: Output Event Issue Milestone HTML URL
+        run: echo "${{ github.event.issue.milestone.html_url }}"
+      - name: Output Event Issue Milestone Node ID
+        run: echo "${{ github.event.issue.milestone.node_id }}" 
+      - name: Output Event Issue Milestone Number
+        run: echo "${{ github.event.issue.milestone.number }}"
+      - name: Output Event Issue Milestone Creator ID
+        run: echo "${{ github.event.issue.milestone.creator.id }}"
+      - name: Output Event Issue Milestone Creator Node ID
+        run: echo "${{ github.event.issue.milestone.creator.node_id }}"
+      - name: Output Event Issue Milestone Creator Avatar URL
+        run: echo "${{ github.event.issue.milestone.creator.avatar_url }}"
+      - name: Output Event Issue Milestone Creator HTML URL
+        run: echo "${{ github.event.issue.milestone.creator.html_url }}"
+      - name: Output Event Issue Milestone Creator Type
+        run: echo "${{ github.event.issue.milestone.creator.type }}"
+      - name: Output Event Issue Milestone Creator Site Admin
+        run: echo "${{ github.event.issue.milestone.creator.site_admin }}"
+      - name: Output Event Issue Closed By Login
+        run: echo "${{ github.event.issue.closed_by.login }}"
+      - name: Output Event Issue Closed By ID
+        run: echo "${{ github.event.issue.closed_by.id }}"
+      - name: Output Event Issue Closed By Node ID
+        run: echo "${{ github.event.issue.closed_by.node_id }}"
+      - name: Output Event Issue Closed By Avatar URL
+        run: echo "${{ github.event.issue.closed_by.avatar_url }}"
+      - name: Output Event Issue Closed By HTML URL
+        run: echo "${{ github.event.issue.closed_by.html_url }}"
+      - name: Output Event Issue Closed By Type
+        run: echo "${{ github.event.issue.closed_by.type }}"
+      - name: Output Event Issue Closed By Site Admin
+        run: echo "${{ github.event.issue.closed_by.site_admin }}"
+      - name: Output Event Issue Performed Via GitHub App ID
+        run: echo "${{ github.event.issue.performed_via_github_app.id }}"
+      - name: Output Event Issue Performed Via GitHub App Node ID
+        run: echo "${{ github.event.issue.performed_via_github_app.node_id }}"
+      - name: Output Event Issue Performed Via GitHub App Name  
+        run: echo "${{ github.event.issue.performed_via_github_app.name }}"
+      - name: Output Event Issue Performed Via GitHub App Owner Login
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.login }}"
+      - name: Output Event Issue Performed Via GitHub App Owner ID
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.id }}"
+      - name: Output Event Issue Performed Via GitHub App Owner Node ID
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.node_id }}"
+      - name: Output Event Issue Performed Via GitHub App Owner Avatar URL
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.avatar_url }}"
+      - name: Output Event Issue Performed Via GitHub App Owner HTML URL
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.html_url }}"
+      - name: Output Event Issue Performed Via GitHub App Owner Type
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.type }}"
+      - name: Output Event Issue Performed Via GitHub App Owner Site Admin
+        run: echo "${{ github.event.issue.performed_via_github_app.owner.site_admin }}" 
+      - name: Output Event Issue Performed Via GitHub App Client ID
+        run: echo "${{ github.event.issue.performed_via_github_app.client_id }}"
+      - name: Output Event Issue Performed Via GitHub App Client Secret
+        run: echo "${{ github.event.issue.performed_via_github_app.client_secret }}"
+      - name: Output Event Issue Performed Via GitHub App HTML URL
+        run: echo "${{ github.event.issue.performed_via_github_app.html_url }}"
+      - name: Output Event Issue Performed Via GitHub App Created At
+        run: echo "${{ github.event.issue.performed_via_github_app.created_at }}"
+      - name: Output Event Issue Performed Via GitHub App Updated At
+        run: echo "${{ github.event.issue.performed_via_github_app.updated_at }}"
+      - name: Output Event Issue Performed Via GitHub App Permissions
+        run: echo "${{ toJson(github.event.issue.performed_via_github_app.permissions) }}"
+      - name: Output Event Issue Performed Via GitHub App Events
+        run: echo "${{ toJson(github.event.issue.performed_via_github_app.events) }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended At
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_at }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By Login
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.login }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By ID
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.id }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By Node ID
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.node_id }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By Avatar URL
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.avatar_url }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By HTML URL
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.html_url }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By Type
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.type }}"
+      - name: Output Event Issue Performed Via GitHub App Suspended By Site Admin
+        run: echo "${{ github.event.issue.performed_via_github_app.suspended_by.site_admin }}" 
+      - name: Output Event Issue Reactions Plus One Count
+        run: echo "${{ github.event.issue.reactions['+1'] }}"
+      - name: Output Event Issue Reactions Minus One Count
+        run: echo "${{ github.event.issue.reactions['-1'] }}"
+      - name: Output Event Issue Reactions Laugh Count
+        run: echo "${{ github.event.issue.reactions.laugh }}"
+      - name: Output Event Issue Reactions Confused Count
+        run: echo "${{ github.event.issue.reactions.confused }}"
+      - name: Output Event Issue Reactions Heart Count
+        run: echo "${{ github.event.issue.reactions.heart }}"
+      - name: Output Event Issue Reactions Hooray Count
+        run: echo "${{ github.event.issue.reactions.hooray }}"
+      - name: Output Event Issue Reactions Rocket Count
+        run: echo "${{ github.event.issue.reactions.rocket }}"
+      - name: Output Event Issue Reactions Eyes Count
+        run: echo "${{ github.event.issue.reactions.eyes }}"
+      - name: Output Event Issue Labels Count
+        run: echo "${{ github.event.issue.labels | length }}"
+      - name: Output Event Issue
+        run: echo "This issue has ${{ github.event.issue.comments }} comments."
+      - name: Output Event Issue Is Bug Label Present
+        run: |
+          for label in "${{ toJson(github.event.issue.labels) }}"; do
+            if [ "$label.name" == "bug" ]; then
+              echo "Bug label is present."
+            fi
+          done
+      - name: Output Event Issue Is Enhancement Label Present
+        run: |
+          for label in "${{ toJson(github.event.issue.labels) }}"; do 
+            if [ "$label.name" == "enhancement" ]; then
+              echo "Enhancement label is present."
+            fi
+          done
+      - name: Output Event Issue Is Question Label Present
+        run: |
+          for label in "${{ toJson(github.event.issue.labels) }}"; do
+            if [ "$label.name" == "question" ]; then    
+              echo "Question label is present."
+            fi
+          done
+      - name: Output Event Issue Created More Than 7 Days Ago
+        run: |
+          created_at="${{ github.event.issue.created_at }}"
+          created_date=$(date -d "$created_at" +%s)
+          current_date=$(date +%s)
+          diff=$(( (current_date - created_date) / 86400 ))
+          if [ $diff -gt 7 ]; then
+            echo "Issue was created more than 7 days ago."
+          fi
+      - name: Output Event Issue Updated More Than 7 Days Ago
+        run: |
+          updated_at="${{ github.event.issue.updated_at }}"
+          updated_date=$(date -d "$updated_at" +%s)
+          current_date=$(date +%s)
+          diff=$(( (current_date - updated_date) / 86400 ))
+          if [ $diff -gt 7 ]; then
+            echo "Issue was updated more than 7 days ago."
+          fi
+      - name: Output Event Issue Is Open
+        run: |
+          if [ "${{ github.event.issue.state }}" == "open" ]; then
+            echo "Issue is open."
+          fi    
+      - name: Output Event Issue Is Closed
+        run: |
+          if [ "${{ github.event.issue.state }}" == "closed" ]; then
+            echo "Issue is closed."
+          fi 
+      - name: Output Event Issue Is Locked
+        run: |
+          if [ "${{ github.event.issue.locked }}" == "true" ]; then 
+            echo "Issue is locked."
+          fi
+      - name: Output Event Issue Is Unlocked
+        run: |
+          if [ "${{ github.event.issue.locked }}" == "false" ]; then
+            echo "Issue is unlocked."
+          fi
+      - name: Output Event Issue Is Draft
+        run: |
+          if [ "${{ github.event.issue.draft }}" == "true" ]; then  
+            echo "Issue is a draft."
+          fi
+      - name: Output Event Issue Is Not Draft
+        run: |
+          if [ "${{ github.event.issue.draft }}" == "false" ]; then
+            echo "Issue is not a draft."
+          fi
+      - name: Output Event Issue Has Comments
+        run: |
+          if [ "${{ github.event.issue.comments }}" -gt 0 ]; then
+            echo "Issue has comments."
+          fi
+      - name: Output Event Issue Has No Comments
+        run: |
+          if [ "${{ github.event.issue.comments }}" -eq 0 ]; then
+            echo "Issue has no comments."
+          fi
+      - name: Output Event Issue Author Is Owner
+        run: |
+          if [ "${{ github.event.issue.author_association }}" == "OWNER" ]; then      
+            echo "Issue author is the repository owner."
+          fi
+      - name: Output Event Issue Author Is Collaborator
+        run: |
+          if [ "${{ github.event.issue.author_association }}" == "COLLABORATOR" ]; then
+            echo "Issue author is a collaborator."
+          fi
+      - name: Output Event Issue Author Is Member
+        run: |
+          if [ "${{ github.event.issue.author_association }}" == "MEMBER" ]; then
+            echo "Issue author is a member."
+          fi
+      
