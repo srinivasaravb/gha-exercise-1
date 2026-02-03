@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "Linting Code....."
           npm run lint
-jobs::
+jobs:
   test:
     runs-on: macos-latest
     steps:
