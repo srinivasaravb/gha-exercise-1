@@ -1,1 +1,31 @@
-
+name: build-workflow
+on: [ push, workflow_dispatch ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: setup Node.j
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Dependecies
+        run: |
+          echo "Installingv Dependencies....."
+          npm ci
+      - name: Lint Code
+        run: |
+          echo "Linting Code....."
+          npm run lint
+      - name: Run tests
+        run: |
+          echo "Running tests....."
+          npm test
+      - name: Build Project
+        run: |
+          echo "Building project"
+          npm run build
+      - name: Deploy project
+        run: |
+          echo "Deploy project....."

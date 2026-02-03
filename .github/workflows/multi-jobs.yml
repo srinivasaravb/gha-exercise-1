@@ -1,0 +1,74 @@
+name: multiple-jobs-parallel
+on: [ push, workflow_dispatch ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Dependecies
+        run: |
+          echo "Installing Dependencies....."
+          npm ci
+      - name: Lint Code
+        run: |
+          echo "Linting Code....."
+          npm run lint
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Dependecies
+        run: |
+          echo "Installing Dependencies....."
+          npm ci
+      - name: Run tests
+        run: |
+          echo "Running tests....."
+          npm test
+      - name: Generate Coverage Report
+        run: |
+          echo "Generating Coverage Report....."
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Dependecies
+        run: |
+          echo "Installing Dependencies....."
+          npm ci
+      - name: Lint Code
+        run: |
+          echo "Linting Code....."
+          npm run lint
+      - name: Run tests
+        run: |
+          echo "Running tests....."
+          npm test
+      - name: Build Project
+        run: |
+          echo "Building project"
+          npm run build
+  deploy:
+    needs: [lint, test, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Deploy project
+        run: |
+          echo "Deploy project....."
