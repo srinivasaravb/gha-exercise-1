@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         run: |
           echo "Running tests....."
-          npmr test
+          npm test
       - name: Build Project
         run: |
           echo "Building project"
