@@ -1,4 +1,4 @@
-name: output-event-issues
+name: outputin-event-issues
 on: [push, workflow_dispatch]
 jobs:
   issues:
