@@ -252,6 +252,6 @@ jobs:
       - name: Output Event Issue Reactions Eyes Count
         run: echo "${{ github.event.issue.reactions.eyes }}"
       - name: Output Event Issue Labels Count
-        run: echo "${{ github.event.issue.labels | length }}"
+        run: echo "${{ github.event.issue.labels }}"
       - name: Output Event Issue
         run: echo "This issue has ${{ github.event.issue.comments }} comments."
